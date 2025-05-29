@@ -1,0 +1,80 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": ["custom/eye", "pulseaudio", "custom/networkicon", "network", "cpu", "memory"],
+  "modules-center": ["clock", "custom/layout"],
+  "modules-right": ["battery", "backlight"],
+
+  "custom/eye": {
+    "format": "󰈈",
+    "tooltip": false,
+    "on-click": "nautilus ."
+  },
+
+  "pulseaudio": {
+    "format": "{volume}%🔊",
+    "format-muted": "🔇 {volume}%",
+    "tooltip": false,
+    "on-click": "pavucontrol"
+  },
+
+  "custom/networkicon": {
+    "format": "󰤨",
+    "tooltip": "Управление сетью",
+    "on-click": "alacritty -e nmtui",
+    "return-type": "json"
+  },
+
+  "network": {
+    "format-wifi": "{essid}",
+    "format-ethernet": "󰈀 LAN",
+    "format-disconnected": "󰖪 Нет сети",
+    "tooltip": false
+  },
+
+  "cpu": {
+    "format": "\ue266 {usage}%",
+    "tooltip": false
+  },
+
+  "memory": {
+    "format": "\uf31b {used}%",
+    "tooltip": false
+  },
+
+
+  "backlight": { 
+    "format": "󰃠 {percent}%",
+    "tooltip": false
+  }, 
+
+   "battery": {
+    "format": "󰁹 {capacity}%",
+    "format-charging": "⚡ {capacity}%",
+    "tooltip": false
+  },
+
+  
+
+  "clock": {
+    "format": "{:%H:%M %D}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon": 1
+    },
+    "on-click-right": "gnome-calendar"
+  },
+
+
+
+    "custom/layout": {
+        "exec": "hyprctl devices -j | jq -r '.keyboards[0].active_keymap' | cut -c1-2 | tr 'a-z' 'A-Z'",
+        "interval": 1,
+        "format": " {}",
+        "tooltip": false
+    },
+}
+
+
+
