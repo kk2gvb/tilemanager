@@ -3,7 +3,8 @@
   "position": "top",
   "modules-left": ["custom/eye", "pulseaudio", "custom/networkicon", "network", "cpu", "memory"],
   "modules-center": ["clock", "custom/layout"],
-  "modules-right": ["battery", "backlight"],
+  "modules-right": ["battery", "backlight", "custom/power"],
+
 
   "custom/eye": {
     "format": "󰈈",
@@ -18,18 +19,12 @@
     "on-click": "pavucontrol"
   },
 
-  "custom/networkicon": {
-    "format": "󰤨",
-    "tooltip": "Управление сетью",
-    "on-click": "alacritty -e nmtui",
-    "return-type": "json"
-  },
-
   "network": {
     "format-wifi": "{essid}",
     "format-ethernet": "󰈀 LAN",
     "format-disconnected": "󰖪 Нет сети",
-    "tooltip": false
+    "tooltip": false,
+    "on-click": "alacritty -e nmtui"
   },
 
   "cpu": {
@@ -74,6 +69,12 @@
         "format": " {}",
         "tooltip": false
     },
+
+    "custom/power": {
+    	"format": "⏻", // Иконка кнопки (можно заменить на другую, например, из Font Awesome)
+    	"on-click": "wlogout", // Запуск wlogout при клике
+    	"tooltip": "Power Menu"
+  }
 }
 
 
