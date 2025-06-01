@@ -71,7 +71,7 @@
     },
 
     "custom/power": {
-    	"format": "⏻", // Иконка кнопки (можно заменить на другую, например, из Font Awesome)
+    	"format": "⏻ ", // Иконка кнопки (можно заменить на другую, например, из Font Awesome)
     	"on-click": "wlogout", // Запуск wlogout при клике
     	"tooltip": "Power Menu"
   }

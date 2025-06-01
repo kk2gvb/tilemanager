@@ -64,3 +64,8 @@ window#waybar {
     font-weight: bold;
 }
 
+#custom-power{
+    background-color:#4A4A4A;
+    color: #D3D3D3;
+}
+
