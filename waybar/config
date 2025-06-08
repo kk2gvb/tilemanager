@@ -1,9 +1,17 @@
 {
   "layer": "top",
   "position": "top",
-  "modules-left": ["custom/eye", "pulseaudio", "custom/networkicon", "network", "cpu", "memory"],
-  "modules-center": ["clock", "custom/layout"],
+  "modules-left": ["custom/eye", "pulseaudio","cpu", "memory", "bluetooth", "network"],
+  "modules-center": ["clock", "custom/kbdlayout"],
   "modules-right": ["battery", "backlight", "custom/power"],
+
+  "bluetooth": {
+    "format": "󰂯 {status}",
+    "format-connected": "󰂯 {device_alias}", // Иконка и имя подключенного устройства
+    "format-disabled": "󰂯 Off", // Иконка для выключенного Bluetooth
+    "tooltip-format": "Bluetooth: {status}\nDevice: {device_alias}",
+    "on-click": "blueman-manager" // Запуск Bluetooth-менеджера при клике
+  },
 
 
   "custom/eye": {
@@ -51,24 +59,24 @@
 
   
 
-  "clock": {
-    "format": "{:%H:%M %D}",
+"clock": {
+    "format": "{:%H:%M %d/%m/%Y}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
-      "mode": "month",
-      "mode-mon": 1
+        "mode": "month",
+        "mode-mon": 1
     },
-    "on-click-right": "gnome-calendar"
-  },
+    "on-click-right": "firefox calendar.google.com/calendar/u/0/r"
+},
 
 
 
-    "custom/layout": {
-        "exec": "hyprctl devices -j | jq -r '.keyboards[0].active_keymap' | cut -c1-2 | tr 'a-z' 'A-Z'",
-        "interval": 1,
-        "format": " {}",
-        "tooltip": false
-    },
+"custom/kbdlayout": {
+    "exec": "bash ~/.config/waybar/scripts/kb_layout.sh",
+    "interval": 1,
+    "format": " {}",
+    "tooltip": false
+},
 
     "custom/power": {
     	"format": "⏻ ", // Иконка кнопки (можно заменить на другую, например, из Font Awesome)

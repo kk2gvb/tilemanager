@@ -27,9 +27,12 @@ window#waybar {
 }
 
 #network {
-    background-color: #3498db;
+  background: rgba(0, 0, 0, 0.0);
+  color: #00ff00;
 }
-
+#network.disconnected { 
+    background: darkred;
+}
 #cpu {
     background-color: #27ae60;
 }
@@ -69,3 +72,12 @@ window#waybar {
     color: #D3D3D3;
 }
 
+#bluetooth {
+  font-size: 16px;
+  color: #ffffff;
+  background: #ffcccc;
+}
+#bluetooth.connected {
+  color: #00ff00; /* Цвет для активного соединения */
+  background: rgba(0, 0, 0, 0.0);
+}
